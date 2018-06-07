@@ -12,7 +12,8 @@ import fr.theshark34.openlauncherlib.launcher.util.WindowMover;
 public class LauncherFrame extends JFrame{
 
 	private static LauncherFrame instance;
-
+	private static LauncherPanel launcherPanel;
+	
 	public LauncherFrame() {
 		this.setTitle("Paradoxal Launcher");
 		this.setSize(975, 625);
@@ -20,6 +21,8 @@ public class LauncherFrame extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setUndecorated(true);
 		this.setIconImage(getResource("icon.png"));
+		launcherPanel = new LauncherPanel();
+		this.setContentPane(launcherPanel);
 		
 		WindowMover mover = new WindowMover(this);
 		this.addMouseListener(mover);
@@ -38,5 +41,10 @@ public class LauncherFrame extends JFrame{
 	public static LauncherFrame getinstance() {
 		return instance;
 	}
+	
+	public static LauncherPanel getLauncherPanel() {
+		return launcherPanel;
+	}
+	
 
 }
